@@ -3,6 +3,10 @@ package com.fellon.streamapi;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Collectors.*;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summingDouble;
 
 public class StreamCollectorsExample {
     public static void main(String[] args) {
@@ -13,8 +17,13 @@ public class StreamCollectorsExample {
                 new Order("Tablet", 500.0),
                 new Order("Smartphone", 900.0)
         );
-
+        Map<String, List<Order>> ordersByProduct =
+                orders.stream()
+                        .collect(Collectors.groupingBy(Order::getProduct));
+        System.out.println(ordersByProduct);
     }
 
-
 }
+
+
+
