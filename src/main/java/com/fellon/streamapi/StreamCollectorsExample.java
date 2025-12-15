@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Collectors.*;
-
+import java.util.Arrays;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingDouble;
 
@@ -17,10 +17,20 @@ public class StreamCollectorsExample {
                 new Order("Tablet", 500.0),
                 new Order("Smartphone", 900.0)
         );
+        //byProduct
         Map<String, List<Order>> ordersByProduct =
                 orders.stream()
                         .collect(Collectors.groupingBy(Order::getProduct));
         System.out.println(ordersByProduct);
+        //byCoast
+        Map<String, Double> totalCostByProduct =
+                orders.stream()
+                        .collect(Collectors.groupingBy(
+                                Order::getProduct,
+                                Collectors.summingDouble(Order::getCost)
+                        ));
+
+        System.out.println(totalCostByProduct);
     }
 
 }
