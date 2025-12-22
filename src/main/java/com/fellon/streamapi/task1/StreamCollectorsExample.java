@@ -1,4 +1,4 @@
-package com.fellon.streamapi;
+package com.fellon.streamapi.task1;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.fellon.streamapi;
+package com.fellon.streamapi.task1;
 
 public class Order {
     private String product;
